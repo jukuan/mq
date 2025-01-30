@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
+    if (file_exists($file)) {
+        require $file;
+        break;
+    }
+}
+
+use Bratikov\MQ\UI\Cli\Log;
+use Bratikov\MQ\UI\Cli\Signal;
+use Bratikov\MQ\UI\Cli\Status;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputOption;
+
+$app = new Application('mq', '0.1');
+$app->getDefinition()->addOptions([
+    new InputOption('--host', '-H', InputOption::VALUE_REQUIRED, 'Factory host', '127.0.0.1'),
+    new InputOption('--port', '-P', InputOption::VALUE_REQUIRED, 'Factory port', '3333'),
+]);
+$app->add(new Status('status'));
+$app->add(new Log('log'));
+$app->add(new Signal('pause'));
+$app->add(new Signal('resume'));
+$app->add(new Signal('flush'));
+$app->add(new Signal('shutdown'));
+
+$app->run();
