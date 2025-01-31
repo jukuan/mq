@@ -39,7 +39,7 @@ Basic usage examples can be found in the examples folder. To simplify the proces
 2. **Install dependencies**:  
     This script runs composer and installs all required dependencies
     ```bash
-    git clone git@github.com:bratikov/mq.git
+    ./bin/composer update
     ```
 3. **Start the Docker container**:  
     This script mounts the project folder into the container.
