@@ -8,10 +8,6 @@ class File extends Generic
 {
 	public function __construct(readonly string $file)
 	{
-		error_reporting(E_ERROR);
-		ini_set('error_log', $file);
-		ini_set('log_errors', 1);
-		ini_set('display_errors', 0);
 	}
 
 	/**

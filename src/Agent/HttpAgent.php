@@ -14,7 +14,7 @@ use Swoole\Http\Response;
 
 use function Co\go;
 
-class Http implements IAgent
+class HttpAgent implements IAgent
 {
 	private Factory $factory;
 	private Server $server;
