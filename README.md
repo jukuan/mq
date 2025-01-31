@@ -32,27 +32,36 @@ To install the project in your own application, you need to update your composer
 Basic usage examples can be found in the examples folder. To simplify the process, additional scripts are provided, and you can use the Docker image bratikov/php:8.4-swoole for easy setup.
 
 ### Running the Example
-1. **Start the Docker container**:  
+1. **Clone**:  
+    ```bash
+    git clone git@github.com:bratikov/mq.git
+    ```
+2. **Install dependencies**:  
+    This script runs composer and installs all required dependencies
+    ```bash
+    git clone git@github.com:bratikov/mq.git
+    ```
+3. **Start the Docker container**:  
     This script mounts the project folder into the container.
     ```bash
     ./examples/start
     ```
-2. **Start the server**:  
+4. **Start the server**:  
     Run the server script inside the container.
     ```bash
     docker exec -it mq /mq/examples/server.php
     ```
-3. **Send 100,000 messages**:  
+5. **Send 100,000 messages**:  
     Run the client script to enqueue messages.
     ```bash
     docker exec -it mq /mq/examples/client.php
     ```
-4. **Monitor the queue in real-time**:  
+6. **Monitor the queue in real-time**:  
     Track the status of the queue.
     ```bash
     docker exec -it mq /mq/bin/mq status -f
     ```
-5. **Stop the Docker container**:  
+7. **Stop the Docker container**:  
     Stop the running container.
     ```bash
     ./examples/stop
