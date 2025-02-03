@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Bratikov\MQ\Client\HttpClient;
+use Bratikov\MQ\Client\Http as HttpClient;
 use Bratikov\MQ\Examples\Messages\LiveFastDieRandom;
 
 $time = microtime(true);

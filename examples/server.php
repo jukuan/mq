@@ -8,7 +8,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 set_time_limit(0);
 ini_set('memory_limit', '-1');
 
-use Bratikov\MQ\Agent\HttpAgent;
+use Bratikov\MQ\Agent\Http as HttpAgent;
 use Bratikov\MQ\Factory;
 
 $factory = new Factory();

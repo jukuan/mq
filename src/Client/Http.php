@@ -7,15 +7,15 @@ namespace Bratikov\MQ\Client;
 use Bratikov\MQ\IClient;
 use Bratikov\MQ\Stream;
 use Swoole\Atomic;
-use Swoole\Coroutine\Http\Client as CoClient;
+use Swoole\Coroutine\Http\Client as HttpClient;
 
 use function Co\run;
 
-class HttpClient implements IClient
+class Http implements IClient
 {
-	public const CONCURENCY = 100;
+	public const CONCURRENCY = 100;
 
-	public function __construct(readonly string $host, readonly int $port, readonly int $concurrency = self::CONCURENCY)
+	public function __construct(readonly string $host, readonly int $port, readonly int $concurrency = self::CONCURRENCY)
 	{
 	}
 
@@ -34,7 +34,7 @@ class HttpClient implements IClient
 				for ($i = 0; $i < $this->concurrency; ++$i) {
 					$offset = $i * $pageSize;
 					go(function () use (&$messages, $offset, $pageSize, $channel, $sentAtomic) {
-						$client = new CoClient($this->host, $this->port);
+						$client = new HttpClient($this->host, $this->port);
 						$client->set(['keep_alive' => true]);
 						defer(function () use ($client) {
 							$client->close();
