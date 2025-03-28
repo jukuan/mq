@@ -1,35 +1,56 @@
 {
-	"name": "bratikov/mq",
-	"version": "1.0.0",
-	"description": "Fast coroutine based php message queue",
-	"type": "library",
-	"require-dev": {
-		"swoole/ide-helper": "@dev",
-		"friendsofphp/php-cs-fixer": "^3.68",
-		"phpstan/phpstan": "^2.0"
-	},
-	"license": "MIT",
+	"authors": [
+		{
+			"email": "alexander.bratikov@gmail.com",
+			"name": "Alexander Bratikov"
+		}
+	],
 	"autoload": {
 		"psr-4": {
-			"Bratikov\\MQ\\": "src/",
+			"Bratikov\\MQ\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
 			"Bratikov\\MQ\\Examples\\": "examples/"
 		}
 	},
 	"bin": [
 		"bin/mq"
 	],
-	"authors": [
+	"description": "Fast coroutine based php message queue",
+	"homepage": "https://github.com/bratikov/mq",
+	"keywords": [
+		"message queue",
+		"coroutine",
+		"php",
+		"swoole"
+	],
+	"license": "MIT",
+	"minimum-stability": "stable",
+	"name": "bratikov/mq",
+	"repositories": [
 		{
-			"name": "Alexander Bratikov",
-			"email": "alexander.bratikov@gmail.com"
+			"type": "vcs",
+			"url": "https://github.com/bratikov/mq"
 		}
 	],
-	"minimum-stability": "stable",
 	"require": {
-		"php": "^8.0",
 		"ext-swoole": "*",
+		"php": "^8.0",
 		"psr/log": "^3.0",
-		"symfony/console": "^7.2",
-		"ramsey/uuid": "^4.7"
-	}
+		"ramsey/uuid": "^4.7",
+		"symfony/console": "^7.2"
+	},
+	"require-dev": {
+		"friendsofphp/php-cs-fixer": "^3.68",
+		"phpstan/phpstan": "^2.1",
+		"swoole/ide-helper": "@dev"
+	},
+	"support": {
+		"email": "alexander.bratikov@gmail.com",
+		"issues": "https://github.com/bratikov/mq/issues",
+		"source": "https://github.com/bratikov/mq"
+	},
+	"type": "library"
 }
